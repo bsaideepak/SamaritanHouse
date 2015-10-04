@@ -24,7 +24,8 @@ exports.newWorker = function(req, res){
 	json.Ethnicity = req.body.Ethnicity;
 	json.JobSeeker = req.body.JobSeeker;
 	json.WorkerStatus = req.body.WorkerStatus;
-	json.SkillID = 1;//req.body.SkillID;
+	//json.SkillID = 1;//req.body.SkillID;
+	skID = 1;
 
 	worker.newWorker(function(err, result){
 		if(err){
@@ -32,5 +33,20 @@ exports.newWorker = function(req, res){
 		}else{
 			console.log("NOTHING.");
 		}
-	},json);
+	},res, json, skID);
+}
+
+exports.getWorker = function(req,res){
+	if(req.body.WorkerID!= null){
+		worker.getWorkerDetails(function(err, result){
+			if(err){
+				console.log("Error: "+ err);
+			}else{
+				console.log("Success!!");
+				res.render('someWebPage');
+			}
+		},req.body.WorkerID);
+	}else{
+		res.send("Invalid WorkerID.")
+	}
 }
