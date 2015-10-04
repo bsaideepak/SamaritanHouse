@@ -35,16 +35,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(allowCrossDomain);
 app.set('port', 8000);
 
-app.get('/',controller.homepage);
-app.get('/wRegister',controller.workerRegister);
-app.get('/eRegister',controller.employeeRegister);
-app.get('/eLogin',controller.eLogin);
+app.get('/',workerController.homepage);
+app.get('/wRegister',workerController.workerRegister);
+app.get('/eRegister',workerController.employeeRegister);
+app.get('/eLogin',workerController.eLogin);
 
 //app.get('/getWorkerInfo', controller.getWorkerInfo);
-app.post('/newWorker', controller.newWorker);
+app.post('/newWorker', workerController.newWorker);
 //app.post('/register',controller.register);
-app.get('/v1/wrc/workers',controller.getWorkers);
-app.get('/dashboard',controller.getDashboard);
+app.get('/v1/wrc/workers',workerController.getWorkers);
+app.get('/dashboard',workerController.getDashboard);
 
 // Job API's
 app.get('/v1/wrc/job', jobInfo.getJobs);
