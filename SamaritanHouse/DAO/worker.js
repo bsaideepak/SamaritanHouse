@@ -1,5 +1,20 @@
 var mysql = require('./dbConnectionsController');
 
+exports.getWorkers = function(req,res){
+		var connection=mysql.getConnection();
+		var query = connection.query("select * from WorkerInfo",
+				function(err, rows) {
+			connection.end();
+			if (err) {
+				console.log(err);
+				//cstmError.mySqlException(err, res);					
+				//cstmError.throwException('Something went wrong.',res);
+			} else {
+				res.send({res:rows});
+			}
+		});
+}
+
 exports.getWorkerDetails = function(WorkerID) {	
 		var connection=mysql.getConnection();
 		var query = connection.query("select * from WorkerInfo where WorkerID ? ",WorkerID ,

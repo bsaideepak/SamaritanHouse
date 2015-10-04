@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var controller = require('./routes/controller');
+var workerController = require('./routes/workerController');
+var jobInfo = require('./routes/jobsController');
+var skillsList = require('./routes/skillsController');
 
 var app = express();
 var http = require('http')
@@ -34,12 +36,29 @@ app.use(allowCrossDomain);
 app.set('port', 8000);
 
 app.get('/',controller.homepage);
-app.get('/getWorkerInfo', controller.getWorkerInfo);
-app.post('/newWorker', controller.newWorker);
-app.put('/editWorkerDetails', controller.editWorkerDetails);
-app.delete('/deleteWorker', controller.deleteWorker);
+app.get('/wRegister',controller.workerRegister);
+app.get('/eRegister',controller.employeeRegister);
+app.get('/eLogin',controller.eLogin);
 
+//app.get('/getWorkerInfo', controller.getWorkerInfo);
+app.post('/newWorker', controller.newWorker);
 //app.post('/register',controller.register);
+app.get('/v1/wrc/workers',controller.getWorkers);
+app.get('/dashboard',controller.getDashboard);
+
+// Job API's
+app.get('/v1/wrc/job', jobInfo.getJobs);
+//app.post('/v1/wrc/job', jobInfo.submitJob);
+app.get('/v1/wrc/job/:id', jobInfo.getJob);
+//app.put('/v1/wrc/job/:id', jobInfo.udpateJob);
+//app.delete('/v1/wrc/job/:id', jobInfo.deleteJob);
+
+//Skill API's
+app.get('/v1/wrc/skills', skillsList.getSkills);
+app.get('/v1/wrc/skill/:id', skillsList.getSkill);
+app.post('/v1/wrc/skills/', skillsList.addSkill);
+app.put('/v1/wrc/skills/:id', skillsList.updateSkill);
+//app.delete('/v1/wrc/skills/:id', skillsList.deleteSkill);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

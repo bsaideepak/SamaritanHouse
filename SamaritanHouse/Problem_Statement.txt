@@ -1,0 +1,12 @@
+Problem Statement
+
+Technology can be a real enabler for link Samaritan House and specifically the Worker Resource Center.  The PayPal Hackathon gives us a unique opportunity to demonstrate how technology can help them and modernize a process that is currently done with pen and paper and a tomobola lottery system for choosing who gets the opportunity to work. The application will provide a facilitation service to allow workers and employers to connect and facilitate the matching of workers and employers
+
+The Appplication will:
+  Allow workers to register
+  Allow employers to register
+  Allow employers to submit jobs
+  Allow employers to manage jobs
+  Allow the WRC to match workers to jobs
+  Allow the WRC feedback to employers
+  Allow the WRC to send surveys to employers and solicit feedback from workers.

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Worker Login</title>
+<title>Employer Registration</title>
 <meta name="description" content="Samaritan House">
 <meta name="keywords" content="Samaritan House">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,70 +34,46 @@
 <br/>
 
 
-<div class="login-card">
+<div class="employee">
     <h1>Register</h1><br>
-  <form style="margin-left:10%;" action="/newWorker" method="post">
-    <input type="text" id="FirstName"  name="FirstName" placeholder="First Name">
-    <input type="text" id="MiddleName" name="MiddleName"placeholder="Middle Name">
-    <input type="text" id="LastName" name="LastName" placeholder="Last Name">
+  <form style="margin-left:10%;" action="">
+  <input type="text" id="userid" placeholder="Username" size="65">
     <br/>
     <br/>
-    <input type="text" id="Address1" name="Address1" placeholder="Address #1" size="32">
-    <input type="text" id="Address2" name="Address2" placeholder="Address #2" size="31">
+    <input type="password" id="password" placeholder="Password" size="65">
     <br/>
     <br/>
-    <input type="text" id="City" name="City" placeholder="City">
-    <input type="text" id="State" name="State" placeholder="State">
-    <input type="text" id="Zip" name="Zip" placeholder="Zip">
+    <input type="password" id="repassword" placeholder="Re-enter Password" size="65">
     <br/>
     <br/>
-    <input type="tel" id="Phone" name="Phone" placeholder="Phone" size="65">
+    <input type="text" id="fname" placeholder="First Name">
+    <input type="text" id="mname" placeholder="Middle Name">
+    <input type="text" id="lname" placeholder="Last Name">
     <br/>
     <br/>
-    <input type="email" id="Email" name="Email" placeholder="Email" size="65">
+    <input type="text" id="company" placeholder="Company Name" size="65">
     <br/>
     <br/>
-    <input type="text" id="SSN" name="SSN" required placeholder="SSN-###-##-####" size="65"/>
+        
+    <input type="text" id="address" placeholder="Address #1" size="32">
+    <input type="text" id="address1" placeholder="Address #2" size="31">
+    <br/>
+    <br/>
+    <input type="text" id="city" placeholder="City">
+    <input type="text" id="state" placeholder="State">
+    <input type="text" id="zip" placeholder="Zip">
+    <br/>
+    <br/>
+    <input type="tel" id="phone" placeholder="Phone" size="65">
+    <br/>
+    <br/>
+    <input type="email" id="email" placeholder="Email" size="65">
+    <br/>
+    <br/>
+    <input type="text" id="dlid" required pattern="^d{3}-d{2}-d{4}$" placeholder="###-##-####" size="65"/>
 <br/>
 <br/>
-<label for="dob"><b.Date of Birth(DOB)</b></label>
- <input type="date" id="DOB" name="DOB" required size="65"/>
-
-<br/>
-<br/>
-<label for="ethnicity"><b>Ethnicity</b></label>
-<select id="Ethnicity" name="Ethnicity" width="100px">
-    <option value="mixedrace">Mixed Race</option>
-    <option value="arctic">Arctic</option>
-    <option value="european">Caucasian (European)</option>
-    <option value="indian">Caucasian (Indian)</option>
-    <option value="middleeast">Caucasian (Middle East)</option>
-    <option value="african">Caucasian (North African, Other)</option>
-    <option value="australian">Indigenous Australian</option>
-    <option value="american">Native American</option>
-    <option value="asian">North East Asian</option>
-    <option value="pacific">Pacific (Polynesian, Micronesian, etc)</option>
-    <option value="southeast">South East Asian </option>
-    <option value="westafrican">West African, Bushmen, Ethiopian</option>
-    <option value="otherrace">Other Race</option>
-</select>
-<br/>
-<br/>
-<label for="jsns"><b>Select Type</b></label>
-<select id="JobSeeker" name="JobSeeker">
-    <option value="yes">Yes</option>
-    <option value="no">No</option>
-</select>
-<br/>
-<br/>
-<label for="jsns"><b>Skills</b></label>
-<select id="Skills" name="Skills">
-    <option value="1">1</option>
-    <option></option>
-</select><br/>
-<br/>
-
-    <input type="submit" name="login" class="login login-submit" value="Register">
+    <input type="submit" name="employee" class="employeebutton employee-submit" value="Register">
   </form>
 
 </div>

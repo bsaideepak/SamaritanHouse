@@ -5,7 +5,7 @@
 /* Basic CSS starts */
 
 body{
-	background:#222;
+	background:#004C97;
 	font-family: 'Open Sans', sans-serif;
 	font-size:17px;
 	-webkit-font-smoothing: antialiased;
@@ -26,7 +26,7 @@ a{
 	color: #898989;
 }
 
-a:hover{
+a:hover {
 	text-decoration: none;
 	color: #636363;
 }
@@ -49,6 +49,10 @@ hr{
 }
 
 /* Colors */
+
+.formTextColor {
+  Color:##63666A;
+}
 
 .white{
 	color:#fff !important;
@@ -191,6 +195,7 @@ form textarea{
 	font-size: 13px !important;
 	font-weight: 400 !important;
 	box-shadow: none !important;
+  color: #63666A;
 }
 
 strong{
@@ -274,11 +279,19 @@ strong{
 .login-card {
   padding: 40px;
   width: 660px;
-  background-color: #e63131;
+  background-color: #CDEA80;
   margin: 0 auto 10px;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+}
+
+.h1RegTitle{
+  color:#004C97;
+}
+
+.textFormColor {
+  color:#63666A;
 }
 
 .login-card h1 {
@@ -294,6 +307,9 @@ strong{
   position: relative;
 }
 
+.regButtonFS {
+  font-size: 16px;
+}
 
 .login {
   text-align: center;
@@ -312,7 +328,7 @@ strong{
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
-  background-color: #4d90fe;
+  background-color: #63666A;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
@@ -320,7 +336,7 @@ strong{
   /* border: 1px solid #2f5bb7; */
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
+  background-color: #004C97;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
 }
 
@@ -332,6 +348,7 @@ strong{
   display: inline-block;
   opacity: 0.6;
   transition: opacity ease 0.5s;
+  box-shadow: 2px 2px 10px #313340;
 }
 
 .login-card a:hover {
@@ -348,7 +365,7 @@ strong{
 .employee {
   padding: 40px;
   width: 660px;
-  background-color: #0275d7;
+  background-color: #CDEA80;
   margin: 0 auto 10px;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -386,7 +403,7 @@ strong{
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
-  background-color: #ffb800;
+  background-color: #63666A;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
@@ -394,7 +411,7 @@ strong{
   /* border: 1px solid #2f5bb7; */
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color:#ffb800;
+  background-color: #004C97;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
 }
 
