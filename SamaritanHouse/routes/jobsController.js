@@ -10,7 +10,6 @@ exports.getJobs = function getAllJobs(req, res) {
 				//cstmError.mySqlException(err, res);					
 				//cstmError.throwException('Something went wrong.',res);
 			} else {
-				res.setHeader('Set-Cookie', req.session.id);
 				res.send({res:rows});
 			}
 			connection.end();
@@ -31,7 +30,6 @@ exports.getJob = function getJobs(req, res) {
 				//cstmError.mySqlException(err, res);					
 				//cstmError.throwException('Something went wrong.',res);
 			} else {
-				res.setHeader('Set-Cookie', req.session.id);
 				res.send({res:rows});
 			}
 			connection.end();
@@ -41,7 +39,6 @@ exports.getJob = function getJobs(req, res) {
 
 exports.submitJob = function submitJob(req, res) {	
 
-		cookies = 
 		if(req.session.UserName!=null || req.session.UserName!=" "){
 			var connection=mysql.getConnection();
 
@@ -53,7 +50,6 @@ exports.submitJob = function submitJob(req, res) {
 					//cstmError.mySqlException(err, res);					
 					//cstmError.throwException('Something went wrong.',res);
 				} else {
-					res.setHeader('Set-Cookie', req.session.id);
 					res.send({res:"Success"});
 				}
 				conneciton.end();
@@ -79,7 +75,6 @@ exports.updateJob = function udpateJob(req, res) {
 				//cstmError.mySqlException(err, res);					
 				//cstmError.throwException('Something went wrong.',res);
 			} else {
-				res.setHeader('Set-Cookie', req.session.id);
 				res.send({res:"Success"});
 			}
 			conneciton.end();

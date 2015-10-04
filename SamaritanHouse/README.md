@@ -17,6 +17,8 @@ http://samaritanhousesanmateo.org
 
 #WRC App Technical Architecture
 
+![WRC Technical Architecture](/images/App_Arch.png?raw=true "WRC Technical
+Architecture Overview")
 
 
 

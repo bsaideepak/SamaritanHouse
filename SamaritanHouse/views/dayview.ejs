@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href="/fullcalendar.css" rel='stylesheet' />
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/fullcalendar.print.css" rel='stylesheet' media='print' />
+<script src="/lib/moment.min.js"></script>
+<script src="/scripts/jquery.js"></script>
+</style>
+</head>
+<body>
+<button type="button"   class="btn btn-default" onclick="window.location.href='/calendar'">Calendar View</button>
+<div class="table-responsive">
+  <table class="table" id="eventsTable"> 
+	<%
+	for(var i=0;i<events.length;i++){
+	%>
+	<tr><td><%=events[i].description%></td><td><button type='button' id="+<%=events[i].jobID%>+" class='btn btn-default'  onclick='navigate(+<%=events[i].jobID%>)' >View</button></td></tr>	
+	<%}%>
+  </table>
+</div>
+</body>
+<script>
+function navigate(id)
+{
+window.location.href="/jobdescription?id="+id;
+}
+</script>
+</html>

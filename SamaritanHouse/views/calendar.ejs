@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href="/fullcalendar.css" rel='stylesheet' />
+<link href="/fullcalendar.print.css" rel='stylesheet' media='print' />
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+<script src="/lib/moment.min.js"></script>
+<script src="/scripts/jquery.js"></script>
+<script src="/fullcalendar.min.js"></script>
+<style>
+.fc-content{
+height:50px;
+font-size:18px;
+text-align:center;
+vertical-align: middle;
+padding:15px;
+}
+.fc-time{display:none}
+</style>
+<script>
+
+	$(document).ready(function() {
+	
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title'//,
+				//right: 'month,agendaWeek,agendaDay'
+			},
+			//defaultDate: '2015-02-12',
+			editable: false,
+			selectable:true,
+			eventLimit: true, // allow "more" link when too many events
+			 eventClick: function(calEvent, jsEvent, view) {
+			alert(calEvent.start);
+			var start=calEvent.start;
+			var uri="/renderevents?id="+ start;						
+					window.location.href =uri ;
+			 },
+			eventAfterRender: function (event,element, cell) {
+				if(event.title-event.NewCount>0){
+				element.find('.fc-content').append("<div style=' position: relative; width: 15px;height: 15px;float:right;background-color: #E60000;border-radius: 10px;'></div>")
+				}
+			},
+			events: {
+				url: '/getcalendar',
+				error: function() {
+					$('#script-warning').show();
+				},				
+			},
+			
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}
+		});
+		
+	});
+
+</script>
+<style>
+
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#script-warning {
+		display: none;
+		background: #eee;
+		border-bottom: 1px solid #ddd;
+		padding: 0 10px;
+		line-height: 40px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		color: red;
+	}
+
+	#loading {
+		display: none;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 40px auto;
+		padding: 0 10px;
+	}
+
+</style>
+</head>
+<body>
+	<div id='script-warning'>
+		<!--<code>php/get-events.php</code> must be running.-->
+	</div>
+	<div id='loading'>loading...</div>
+	<div id='calendar'></div>
+
+</body>
+</html>

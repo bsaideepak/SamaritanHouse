@@ -10,7 +10,6 @@ exports.getSkills = function getAllSkils(req, res) {
 				//cstmError.mySqlException(err, res);					
 				//cstmError.throwException('Something went wrong.',res);
 			} else {
-				res.setHeader('Set-Cookie', req.session.id);
 				res.send({res:rows});
 			}
 			connection.end();
@@ -29,7 +28,6 @@ exports.getSkill = function getSkill(req, res) {
 				//cstmError.mySqlException(err, res);					
 				//cstmError.throwException('Something went wrong.',res);
 			} else {
-				res.setHeader('Set-Cookie', req.session.id);
 				res.send({res:rows});
 			}
 			connection.end();
@@ -48,7 +46,6 @@ exports.addSkill = function addSkill(req, res) {
 				//cstmError.mySqlException(err, res);					
 				//cstmError.throwException('Something went wrong.',res);
 			} else {
-				res.setHeader('Set-Cookie', req.session.id);
 				res.send({res:result});
 			}
 			connection.end();
@@ -64,8 +61,6 @@ exports.updateSkill = function updateSkill(req, res) {
 				console.log(err);
 			}else{
 				console.log("Success");
-				res.setHeader('Set-Cookie', req.session.id);
-				res.send('Skills Updated!')
 			}
 
 		});

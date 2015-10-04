@@ -1,7 +1,6 @@
 var mysql = require('./dbConnectionsController');
 
-exports.employers = function(json) {
-		
+exports.employers = function(json) {	
 		var connection=mysql.getConnection();
 		var query = connection.query("select * from EmployerInfo ",
 				function(err, rows) {

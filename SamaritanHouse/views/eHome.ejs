@@ -136,8 +136,59 @@
 											<!-- Plan List -->
 											<div class="row">
 												<div class="col-md-6 col-sm-6 col-xs-6">
+<button type="button" class="btn btn-black btn-circle" data-toggle="modal" data-target="#myModal">Add a Job<i class="fa fa-plus"></i></button>
 
-												<a href="#" class="btn btn-black btn-circle">Add a Job<i class="fa fa-plus"></i></a>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="width:400px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Job Post</h4>
+      </div>
+      <div class="modal-body">
+  <form style="margin-left:10%;">
+  <input type="text" id="jtitle" placeholder="Job Title" size="40">
+    <br/>
+    <br/>
+    <input type="text" id="description" placeholder="Description" size="40">
+<br/>
+<br/>
+<input type="text" id="location" placeholder="Work Site Location" size="40">
+<br/>
+<br/>
+<input type="datetime" id="sdate" placeholder="Start Date" size="40">
+<br/>
+<br/>
+<input type="text" id="hours" placeholder="Estimated Hours" size="40">
+<br/>
+<br/>
+<select>
+  <option value="">Skills</option>
+  <option value="plumbing">Plumbing</option>
+  <option value="gardening">Gardening</option>
+  <option value="carpenting">Carpenting</option>
+</select>
+
+<br/>
+<br/>
+<input type="text" id="number" placeholder="Number of Workers" size="40">
+<br/>
+<br/>
+<input type="text" id="payrate" placeholder="Pay Rate" size="40">
+<br/>
+<br/>5
+    <input type="submit" name="employee" class="employeebutton employee-submit" value="Sign In" style="margin-left:20%; width:100px;">
+  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 											</div>
 											<!-- Button -->
