@@ -1,35 +1,42 @@
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  ,employer=require('./routes/employer')
-  , http = require('http')
-  , path = require('path');
+var controller = require('./routes/controller');
 
 var app = express();
+var http = require('http')
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,POST');
+    res.header('Access-Control-Allow-Headers', '*');
+
+    next();
 }
 
-app.get('/', routes.index);
-app.get('/employers', employer.employers);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(allowCrossDomain);
+app.set('port', 8000);
+
+app.get('/',controller.homepage);
+//app.get('/getWorkerInfo', controller.getWorkerInfo);
+app.post('/newWorker', controller.newWorker);
+//app.post('/register',controller.register);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

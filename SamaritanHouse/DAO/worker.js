@@ -20,31 +20,34 @@ exports.newWorker = function (callback, json) {
 	
 	var query = connection.query("INSERT INTO WorkerInfo set ? ",json, function(err, r){
 		if (err) {
-			console.log("Error: " + r);									
+			console.log("Error Here: " + r);									
 		} 
 		else {		
 			console.log("Level 1");
+			//connection.end();
 
-			connection.query("select MAX(WorkerID) as id from WorkerInfo ;"), function(error, results){
+			var conn = mysql.getConnection();
+			conn.query("select MAX(WorkerID) as id from WorkerInfo", function(error, results){
 				if(error){
 					console.log("Sleep!!! "+error);
 				}else{
 					console.log("Level 2");
-					connection.query("INSERT INTO UserSkills set ? ", {WorkerID: results, SkillID: json.SkillID} , function(errors, rows){
+					connection.query("INSERT INTO UserSkills set ? ", {WorkerID: json.SkillID, SkillID: json.SkillID} , function(errors, rows){
 						if (errors) {
 							console.log("sdsd "+ errors);
 						} 
 						else {
 							console.log("Level 3");
 							res.send({"msg":"successfully inserted"});
-							connection.end();	
+							// connection.end();	
 						}
+					// });
 					});
 				}
-			}
 		//	console.log(json);
+			});
+		connection.end();	
 		}
-		//connection.end();	
 	});
-};
+}
  

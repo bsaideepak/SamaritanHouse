@@ -24,7 +24,7 @@ exports.newWorker = function(req, res){
 	json.Ethnicity = req.body.Ethnicity;
 	json.JobSeeker = req.body.JobSeeker;
 	json.WorkerStatus = req.body.WorkerStatus;
-	//json.SkillID = 1;//req.body.SkillID;
+	json.SkillID = 1;//req.body.SkillID;
 
 	worker.newWorker(function(err, result){
 		if(err){
