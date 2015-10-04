@@ -34,8 +34,11 @@ app.use(allowCrossDomain);
 app.set('port', 8000);
 
 app.get('/',controller.homepage);
-//app.get('/getWorkerInfo', controller.getWorkerInfo);
+app.get('/getWorkerInfo', controller.getWorkerInfo);
 app.post('/newWorker', controller.newWorker);
+app.put('/editWorkerDetails', controller.editWorkerDetails);
+app.delete('/deleteWorker', controller.deleteWorker);
+
 //app.post('/register',controller.register);
 
 http.createServer(app).listen(app.get('port'), function(){

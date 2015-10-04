@@ -36,7 +36,7 @@ exports.newWorker = function(req, res){
 	},res, json, skID);
 }
 
-exports.getWorker = function(req,res){
+exports.getWorkerInfo = function(req,res){
 	if(req.body.WorkerID!= null){
 		worker.getWorkerDetails(function(err, result){
 			if(err){
@@ -49,4 +49,43 @@ exports.getWorker = function(req,res){
 	}else{
 		res.send("Invalid WorkerID.")
 	}
+}
+
+exports.deleteWorker = function(req, res){
+	//TODO
+	worker.deleteWorker(function(err, response){
+		if(err){
+			console.log("Error: "+err);
+		}else{
+			console.log("Success.");
+		}
+	},req.body.WorkerID);
+}
+
+exports.editWorkerDetails = function(req, res){
+	//TODO
+	var json = {};
+	json.FirstName = req.body.FirstName;
+	json.MiddleName = req.body.MiddleName;
+	json.LastName = req.body.LastName;
+	json.DOB = req.body.DOB;	
+	json.SSN = req.body.SSN;
+	json.Address1 = req.body.Address1;
+	json.Address2 = req.body.Address2;
+	json.City = req.body.City;
+	json.State = req.body.State;
+	json.Zip = req.body.Zip;
+	json.Phone = req.body.Phone;
+	json.Email = req.body.Email;
+	json.Ethnicity = req.body.Ethnicity;
+	json.JobSeeker = req.body.JobSeeker;
+	json.WorkerStatus = req.body.WorkerStatus;
+
+	worker.editWorker(function(err, response){
+		if(err){
+			console.log("Error: "+err);
+		}else{
+			console.log("Success.");
+		}
+	}, json);
 }
