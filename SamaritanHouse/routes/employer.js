@@ -1,6 +1,6 @@
 var mysql = require('./dbConnectionsController');
 
-exports.employers=function getEmployerDetails(req, res,summary) {	
+exports.employers=function getEmployerDetails(json) {	
 		var connection=mysql.getConnection();
 		var query = connection.query("select * from EmployerInfo ",
 				function(err, rows) {
@@ -14,15 +14,32 @@ exports.employers=function getEmployerDetails(req, res,summary) {
 			}
 		});
 };
-exports.empRegister=function insertEmployer(req, res) {	
+
+exports.empRegister = function(callback, json) {	
 	var connection=mysql.getConnection();
 	
-	var query = connection.query("INSERT INTO connections set ? ",data, function(err, rows){
+	var query = connection.query("INSERT INTO connections set ? ", json , function(err, r){
 		if (err) {
 			res.error=err;									
 		} 
-		else {					
-			res.send({"msg":"successfully inserted"});
+		else {		
+
+			connection.query("select MAX(id) as id from WorkerInfo "), function(err, results){
+				if(err){
+					console.log("Sleep!!!");
+
+				}else{
+
+					connection.query("INSERT INTO UserSkills set ? ", {WorkerID: results, SkillID: json.SkillID} , function(err, rows){
+						if (err) {
+							res.error=err;									
+						} 
+						else {
+							res.send({"msg":"successfully inserted"});	
+						}
+					});
+				}
+			}	
 		}
 		connection.end();	
 	});

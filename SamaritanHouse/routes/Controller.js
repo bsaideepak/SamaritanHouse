@@ -1,11 +1,13 @@
-var db = require('../util/userAccountsDB');
+// var mysql = require('../DAO/dbConnectionsController');
+var worker = require('../DAO/worker');
 
 exports.homepage = function(req, res){
 	console.log("here.");
-	res.send("Welcome to my NodeJS App. We're going Old School!!");
+	res.render('eregister');
+	// res.send("Welcome to my NodeJS App. We're going Old School!!");
 }
 
-exports.registerWorker = function(req, res){
+exports.newWorker = function(req, res){
 	json = [];
 	json.FirstName = req.body.FirstName;
 	json.MiddleName = req.body.MiddleName;
@@ -22,6 +24,13 @@ exports.registerWorker = function(req, res){
 	json.Ethnicity = req.body.Ethnicity;
 	json.JobSeeker = req.body.JobSeeker;
 	json.WorkerStatus = req.body.WorkerStatus;
+	json.SkillID = 1;//req.body.SkillID;
 
-	db.insertUserAccountDetails(json);
+	worker.newWorker(function(err, result){
+		if(err){
+			console.log("Error: "+err);
+		}else{
+			console.log("NOTHING.");
+		}
+	},json);
 }
